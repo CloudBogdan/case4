@@ -16,11 +16,13 @@ body, html, .app, #root {
 
 body {
     background: #fff;
+    transition: 1s;
 }
 
 .section {
     width: 100vh;
     height: 100vh;
+    
 }
 .page {
     width: 100%;
