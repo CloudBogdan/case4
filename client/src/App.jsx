@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Switch } from "react-router";
+import HomePage from './pages/HomePage';
 
 const App = ()=> {
 	return (
@@ -7,7 +8,7 @@ const App = ()=> {
 			
 			<Switch>
 
-				<Route path="/" exact component={ ()=> <h1>GG easy</h1> } />
+				<Route path="/" exact component={ HomePage } />
 
 			</Switch>
 

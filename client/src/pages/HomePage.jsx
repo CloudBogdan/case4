@@ -1,12 +1,19 @@
 import React from "react";
+import Section from "../components/Section";
 
 const HomePage = ()=> {
     return (
         <main className="page">
 
-            <div>Wow</div>
-            <div>Wow</div>
-            <div>Wow</div>
+            <Section color="red">
+                Red!
+            </Section>
+            <Section color="blue">
+                Blue!
+            </Section>
+            <Section color="green">
+                Green!
+            </Section>
 
         </main>
     );
