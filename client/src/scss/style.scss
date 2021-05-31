@@ -17,3 +17,14 @@ body, html, .app, #root {
 body {
     background: #fff;
 }
+
+.section {
+    width: 100vh;
+    height: 100vh;
+}
+.page {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
