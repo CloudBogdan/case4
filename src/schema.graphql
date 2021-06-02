@@ -1,3 +1,33 @@
+type Worker {
+    id: ID!
+    
+    firstName: String
+    lastName: String
+    middleName: String
+    birthday: String
+    human_id: ID!
+    date: String
+
+    login: String
+    password: String
+}
+type Human {
+    id: ID!
+    
+    firstName: String
+    lastName: String
+    middleName: String
+    birthday: String
+    date: String
+
+    login: String
+    password: String
+
+    workers: [Worker]!
+}
+
 type Query {
-    workers: String
+    workers: [Worker]!
+
+    humans: [Human]!
 }
