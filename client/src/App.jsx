@@ -6,7 +6,7 @@ import HomePage from './pages/HomePage';
 const App = ()=> {
 	
 	return (
-		<Context.Provider value={ { products } }>
+		<Context.Provider value={ {  } }>
 			<div className="app">
 				
 				<Switch>

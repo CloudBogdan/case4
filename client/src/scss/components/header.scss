@@ -1,0 +1,21 @@
+$button-size: 50px;
+
+.header {
+    width: max-content;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    border-right: 1px solid #d1d1d1;
+
+    .header-button {
+        width: $button-size;
+        height: $button-size;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+}

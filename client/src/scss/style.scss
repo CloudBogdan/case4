@@ -1,6 +1,10 @@
+.bg-blue-500 {
+    background-color: #3B82F6;
+}
+
 * {
     box-sizing: border-box;
-    outline: none;
+    outline: none !important;
     position: relative;
     margin: 0;
     padding: 0;
@@ -13,7 +17,10 @@ body, html, .app, #root {
 
 body {
     background: #fff;
+    overflow: hidden;
 }
+
+@import "./components/header.scss";
 
 .section {
     width: 100%;

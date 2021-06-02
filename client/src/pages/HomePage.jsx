@@ -1,11 +1,11 @@
 import React from "react";
-import Section from "../components/Section";
+import Header from "../components/header/Header";
 
 const HomePage = ()=> {
     return (
         <main className="page">
 
-            
+            <Header />
 
         </main>
     );
