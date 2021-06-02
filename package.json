@@ -2,18 +2,21 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "server/index.js",
+  "main": "src/resolvers.js",
   "scripts": {
-    "server": "cd server && nodemon index.js",
+    "server": "graphpack",
+    "serverbuild": "graphpack build",
     "client": "cd client && npm start"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongoose": "^5.12.12"
   },
   "devDependencies": {
+    "graphpack": "^1.0.9",
     "nodemon": "^2.0.7"
   }
 }
