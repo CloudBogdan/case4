@@ -14,11 +14,6 @@ const Section = ({ children, color })=> {
         const body = document.body;
         
         body.className = color;
-        // switch (color) {
-        //     case "":
-                
-        // }
-
         
     }, [in_view]);
     

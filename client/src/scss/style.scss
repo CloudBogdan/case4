@@ -20,7 +20,7 @@ body, html, .app, #root {
 
 body {
     background: #fff;
-    transition: 1s background;
+    transition: 3s background;
 
     &.red {
         background: $red;
