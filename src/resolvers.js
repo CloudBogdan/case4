@@ -17,10 +17,14 @@ const resolvers = {
             HumanModel.find({}),
 
     },
+    Worker: {
+        human: (parent)=>
+            HumanModel.findById(parent.human_id)
+    },
     Human: {
         workers: (parent)=>
             WorkerModel.find({ human_id: parent.id })
-    }
+    },
 };
 
 export default resolvers;
