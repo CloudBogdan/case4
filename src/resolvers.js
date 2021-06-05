@@ -9,6 +9,7 @@ mongoose.connect("mongodb+srv://bogdanov:123RF4Ru43568@cluster0.i1nqu.mongodb.ne
 });
 
 const resolvers = {
+    // > Query
     Query: {
         
         workers: ()=>
@@ -17,6 +18,31 @@ const resolvers = {
             HumanModel.find({}),
 
     },
+    // > Mutation
+    Mutation: {
+        // > Add worker 👨✅
+        addWorker: (parent, args)=>
+            new WorkerModel(args).save(),
+        // > Add human 👨‍🦳✅
+        addHuman: (parent, args)=>
+            new HumanModel(args).save(),
+
+        // > Update worker 👨⏫
+        updateWorker: (parent, args)=>
+            WorkerModel.findByIdAndUpdate(args.id, { $set: args }, { new: true }),
+        // > Update human 👨‍🦳⏫
+        updateHuman: (parent, args)=>
+            HumanModel.findByIdAndUpdate(args.id, { $set: args }, { new: true }),
+
+        // > Remove worker 👨❌
+        removeWorker: (parent, { id })=>
+            WorkerModel.findByIdAndRemove(id),
+        // > Remove human 👨‍🦳❌
+        removeHuman: (parent, { id })=>
+            HumanModel.findByIdAndDelete(id),
+    },
+
+    // > Types
     Worker: {
         human: (parent)=>
             HumanModel.findById(parent.human_id)

@@ -1,3 +1,68 @@
+type Query {
+    workers: [Worker]!
+
+    humans: [Human]!
+}
+type Mutation {
+    # > Add worker 👨✅
+    addWorker(
+        firstName: String!
+        lastName: String!
+        middleName: String!
+        birthday: String!
+        human_id: ID!
+        date: String!
+
+        login: String!
+        password: String!
+    ): Worker
+    # > Add human 👨‍🦳✅
+    addHuman(
+        firstName: String!
+        lastName: String!
+        middleName: String!
+        birthday: String!
+        date: String!
+
+        login: String!
+        password: String!
+    ): Human
+
+    # > Update worker 👨⏫
+    updateWorker(
+        id: ID!
+        
+        firstName: String
+        lastName: String
+        middleName: String
+        birthday: String
+        human_id: ID
+        date: String
+
+        login: String
+        password: String
+    ): Worker
+    # > Update human 👨‍🦳⏫
+    updateHuman(
+        id: ID!
+        
+        firstName: String
+        lastName: String
+        middleName: String
+        birthday: String
+        date: String
+
+        login: String
+        password: String
+    ): Human
+
+    # > Remove worker 👨❌
+    removeWorker(id: ID!): Worker
+    # > Remove human 👨‍🦳❌
+    removeHuman(id: ID!): Human
+}
+
+# > Types
 type Worker {
     id: ID!
     
@@ -25,10 +90,4 @@ type Human {
     password: String
 
     workers: [Worker]!
-}
-
-type Query {
-    workers: [Worker]!
-
-    humans: [Human]!
 }
