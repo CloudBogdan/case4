@@ -2,13 +2,19 @@ import { useQuery } from "@apollo/client";
 import React, { useEffect, useState } from "react";
 import Loader from "../components/ui/Loader";
 import Header from "../components/header/Header";
-import { WokersList } from "../components/worker/Worker";
-import { WokersQuery } from "../queries/queries";
+import { WorkersList } from "../components/worker/Worker";
+import { WorkersQuery } from "../queries/queries";
+import ToolbarRight from "../components/header/ToolbarRight";
+import WorkerInfo from "../components/worker/WorkerInfo";
+import Icon from "../components/ui/Icon";
 
 const HomePage = ()=> {
 
-    const { data, loading, error, refetch } = useQuery(WokersQuery(["id", "firstName", "lastName", "middleName"]));
+    const { data, loading, error, refetch } = useQuery(WorkersQuery(["id", "firstName", "lastName", "middleName"]));
     const [workers, setWorkers] = useState([]);
+    const 
+        [show_worker_info, setShowWorkerInfo] = useState(false),
+        [current_worker_id, setCurrentWorkerId] = useState("");
 
     function refetchData() {
         refetch();
@@ -26,45 +32,55 @@ const HomePage = ()=> {
         setInterval(refetchData, 5000);
     }, []);
     
-    return (
-        <main className="page">
+    return <>
+        <main className="page flex flex-row justify-between">
 
-            <Header />
+            <main className="flex flex-column width-fill">
 
-            <section className="section flex flex-column gap-2">
+                <Header />
 
-                { !loading ? 
-                    <>
-                        <div className="slot gap-4">
-                            <h1>Сотрудники</h1>
-                            <h2 className="text-muted">&middot;</h2>
-                            <div className="slot gap-2">
+                {/* Сотрудники */}
+                <section className="section flex flex-column gap-2">
+
+                    { !loading ? 
+                        <>
+                            <div className="slot gap-4">
+                                <h1>Сотрудники</h1>
+                                <div className="slot gap-2">
 
 
-                                <button className="subtle" onClick={ ()=> refetchData() }>
-                                    { !loading ?
-                                        "Обновить"
-                                    : <Loader /> }
-                                </button>
+                                    <button className="subtle compact small" onClick={ ()=> refetchData() }>
+                                        { !loading ?
+                                            <Icon icon="refresh" />
+                                        : <Loader /> }
+                                    </button>
 
+                                </div>
+                            </div>
+                        
+                            <WorkersList handle={ props=> {
+                                setShowWorkerInfo(true)
+                                setCurrentWorkerId(props.id)
+                            } } workers={ workers } />
+                        </> 
+                    : 
+                        <div className="flex item-center justify-center">
+                            <div className="flex flex-column items-center">
+                                <h3 className="text-muted mb-2">Получаем данные...</h3>
+                                <Loader />
                             </div>
                         </div>
-                    
-                        <WokersList workers={ workers } />
-                    </> 
-                : 
-                    <div className="flex item-center justify-center">
-                        <div className="flex flex-column items-center">
-                            <h3 className="text-muted mb-2">Получаем данные...</h3>
-                            <Loader />
-                        </div>
-                    </div>
-                }
+                    }
 
-            </section>
+                </section>
+
+            </main>
+
+            <ToolbarRight />
 
         </main>
-    );
+        <WorkerInfo worker_id={ current_worker_id } active={ show_worker_info } setActive={ setShowWorkerInfo } />
+    </>;
 };
 
 export default HomePage;

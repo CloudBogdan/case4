@@ -18,10 +18,10 @@ button, .button {
     transition: .1s;
 
     &.subtle {
-        background: lighten($grey-light, 3.5);
+        background: lighten($grey-light, 8);
         color: $black;
         &:hover, &:focus {
-            background: lighten($grey-light, 1);
+            background: lighten($grey-light, 6);
             color: $blue;
         }
     }
@@ -39,6 +39,17 @@ button, .button {
         height: 50px;
         padding: 0;
     }
+    &.fab {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        padding: 0;
+    }
+    &.small {
+        width: 40px;
+        height: 40px;
+        padding: 0;
+    }
     
     &:not(.subtle):not(.ghost) {
         &:hover {
@@ -46,9 +57,7 @@ button, .button {
         }
     }
     &:active {
-        // transform: translateY(1px) scale(.98);
         transform: translateY(1px);
-        // transform: scale(.98);
     }
 
     &.slot-button {
@@ -56,10 +65,6 @@ button, .button {
         padding: 10px 20px;
         
         border-radius: 50px;
-    }
-
-    .icon {
-        margin-right: 10px;
     }
     
 }

@@ -1,7 +1,9 @@
 type Query {
     workers: [Worker]!
+    worker(id: ID!): Worker
 
     humans: [Human]!
+    human(id: ID!): Human
 }
 type Mutation {
     # > Add worker 👨✅

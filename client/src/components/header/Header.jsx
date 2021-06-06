@@ -7,7 +7,7 @@ const Header = ()=> {
 
             <b>Epam HR system</b>
 
-            <button title="Вы вошли как HR" className="slot-button subtle">
+            <button title="Вы вошли как HR" className="slot-button subtle flex gap-2">
                 <Icon icon="bag" />
                 Дмитрий Никитов
             </button>

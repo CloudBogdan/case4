@@ -1,0 +1,40 @@
+.modal-window-wrapper {
+    width: 100vw;
+    height: 100vh;
+
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    visibility: hidden;
+    background: rgba(0, 0, 0, .5);
+
+    .modal-window {
+        transition: .2s;
+        transform: translateY(10px) scale(.98);
+        opacity: 0;
+    }
+
+    &.active {
+        visibility: visible;
+        .modal-window {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+    }
+    
+}
+
+.typical-modal {
+    padding: 30px;
+
+    display: flex;
+    flex-direction: column;
+    
+    border-radius: $brs;
+    background: #fff;
+}

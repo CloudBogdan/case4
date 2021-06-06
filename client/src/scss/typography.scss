@@ -1,3 +1,12 @@
 .text-muted {
     color: $grey;
 }
+.selectable {
+    user-select: text !important;
+    * {
+        user-select: text !important;
+    }
+}
+.font-middle {
+    font-weight: 600;
+}

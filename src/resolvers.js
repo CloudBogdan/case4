@@ -14,8 +14,13 @@ const resolvers = {
         
         workers: ()=>
             WorkerModel.find({}),
+        worker: (parent, { id })=>
+            WorkerModel.findById(id),
+            
         humans: ()=>
             HumanModel.find({}),
+        human: (parent, { id })=>
+            HumanModel.findById(id),
 
     },
     // > Mutation
