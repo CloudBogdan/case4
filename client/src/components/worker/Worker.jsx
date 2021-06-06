@@ -1,6 +1,5 @@
 import React from "react";
 import Icon from "../ui/Icon";
-import Loader from "../ui/Loader";
 
 export const Worker = props=> {
     return (
@@ -13,10 +12,10 @@ export const Worker = props=> {
                 <Icon icon="user" />
 
                 <div className="flex gap-2">
-                    <b className="worker-name flex">
+                    <div style={ { fontWeight: 600 } } className="worker-name slot">
                         { `${ props.firstName } ${ props.lastName }`  }
                         <div className="middleName">&#160;{ props.middleName }</div>
-                    </b>
+                    </div>
                 </div>
 
             </div>

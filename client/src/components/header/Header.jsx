@@ -1,13 +1,16 @@
 import React from "react";
-import HeaderButton from "./HeaderButton";
+import Icon from "../ui/Icon";
 
 const Header = ()=> {
     return (
-        <header className="header p-3">
+        <header className="header">
 
-            <HeaderButton icon="clipboard" />
-            <HeaderButton icon="users" />
-            <HeaderButton />
+            <b>Epam HR system</b>
+
+            <button title="Вы вошли как HR" className="slot-button subtle">
+                <Icon icon="bag" />
+                Дмитрий Никитов
+            </button>
 
         </header>
     );

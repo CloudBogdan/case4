@@ -5,7 +5,7 @@ button, .button {
     
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center;    
     
     background: $blue;
     border: none;
@@ -19,8 +19,8 @@ button, .button {
 
     &.subtle {
         background: lighten($grey-light, 3.5);
-        color: $grey;
-        &:hover {
+        color: $black;
+        &:hover, &:focus {
             background: lighten($grey-light, 1);
             color: $blue;
         }
@@ -28,7 +28,7 @@ button, .button {
     &.ghost {
         background: transparent;
         color: $grey;
-        &:hover {
+        &:hover, &:focus {
             color: $blue;
             background: transparent;
         }
@@ -40,11 +40,26 @@ button, .button {
         padding: 0;
     }
     
-    &:not(.subtle):not(.ghost):hover {
-        background: darken($blue, 5);
+    &:not(.subtle):not(.ghost) {
+        &:hover {
+            background: darken($blue, 5);
+        }
     }
     &:active {
-        transform: translateY(1px) scale(.98);
+        // transform: translateY(1px) scale(.98);
+        transform: translateY(1px);
+        // transform: scale(.98);
+    }
+
+    &.slot-button {
+        height: max-content;
+        padding: 10px 20px;
+        
+        border-radius: 50px;
+    }
+
+    .icon {
+        margin-right: 10px;
     }
     
 }
