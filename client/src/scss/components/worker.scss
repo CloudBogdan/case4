@@ -1,0 +1,43 @@
+.worker-item {
+    background: #fff;
+    border-bottom: 1px solid $grey-light;
+
+    transition: .5s background;
+    cursor: pointer;
+
+    &:hover {
+        background: transparentize($grey-light-alpha, .1);
+        .middleName {
+            opacity: 1;
+            color: $grey;
+        }
+    }
+    
+    .middleName {
+        opacity: 0;
+    }
+    .icon {
+        color: $grey;
+    }
+
+    // Borders
+    &:first-child {
+        border-top-left-radius: $brs;
+        border-top-right-radius: $brs;
+    }
+    &:last-child {
+        border: none;
+        border-bottom-left-radius: $brs;
+        border-bottom-right-radius: $brs;
+    }
+    // &:nth-child(2n) {
+    //     background: transparentize($grey-light, .5);
+    // }
+    
+}
+
+.workers-list {
+    max-height: 100%;
+
+    // overflow-y: auto;
+}

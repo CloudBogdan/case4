@@ -66,16 +66,16 @@ type Mutation {
 type Worker {
     id: ID!
     
-    firstName: String
-    lastName: String
-    middleName: String
-    birthday: String
-    human_id: ID!
-    human: Human!
-    date: String
+    firstName: String # Имя
+    lastName: String # Фамилия
+    middleName: String # Отчество
+    birthday: String # День рождения
+    human_id: ID! # ID начальника(HR)
+    human: Human! # Начальник(HR)
+    date: String # Дата регистрации
 
-    login: String
-    password: String
+    login: String # Логин
+    password: String # Пароль
 }
 type Human {
     id: ID!
@@ -89,5 +89,5 @@ type Human {
     login: String
     password: String
 
-    workers: [Worker]!
+    workers: [Worker]! # Сотрудники\работники
 }

@@ -1,11 +1,44 @@
-import React from "react";
-import Header from "../components/header/Header";
+import { useQuery } from "@apollo/client";
+import React, { useEffect, useState } from "react";
+import Loader from "../components/ui/Loader";
+// import Header from "../components/header/Header";
+import { WokersList } from "../components/worker/Worker";
+import { WokersQuery } from "../queries/queries";
+import Icon from "../components/ui/Icon";
 
 const HomePage = ()=> {
+
+    const { data, loading, error, refetch } = useQuery(WokersQuery(["id", "firstName", "lastName", "middleName"]));
+    const [workers, setWorkers] = useState([]);
+
+    useEffect(()=> {
+
+        if (loading || !data.workers || error) return;
+        setWorkers(data.workers);
+
+    }, [loading, data]);
+    
     return (
         <main className="page">
 
-            <Header />
+            <section className="section flex flex-column">
+
+                <div className="flex gap-2">
+
+                    <button className="mb-2 subtle" onClick={ ()=> refetch() }>
+                        { !loading ?
+                            "Обновить"
+                        : <Loader /> }
+                    </button>
+                    <button className="subtle compact">
+                        <Icon icon="cog" />
+                    </button>
+
+                </div>
+                <WokersList workers={ workers } loading={ loading } />
+                {/* <Loader /> */}
+
+            </section>
 
         </main>
     );

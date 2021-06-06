@@ -1,0 +1,49 @@
+button, .button {
+    width: max-content;
+    padding: 0 24px;
+    height: 50px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    background: $blue;
+    border: none;
+    border-radius: $brs;
+    font-weight: 600;
+    color: #fff;
+
+    cursor: pointer;
+    transition: .1s;
+
+    &.subtle {
+        background: lighten($grey-light, 3.5);
+        color: $grey;
+        &:hover {
+            background: lighten($grey-light, 1);
+            color: $blue;
+        }
+    }
+    &.ghost {
+        background: transparent;
+        color: $grey;
+        &:hover {
+            color: $blue;
+            background: transparent;
+        }
+    }
+
+    &.compact {
+        width: 50px;
+        height: 50px;
+        padding: 0;
+    }
+    
+    &:not(.subtle):not(.ghost):hover {
+        background: darken($blue, 5);
+    }
+    &:active {
+        transform: translateY(1px) scale(.98);
+    }
+    
+}
