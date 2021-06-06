@@ -23,20 +23,31 @@ const HomePage = ()=> {
 
             <section className="section flex flex-column">
 
-                <div className="flex gap-2">
+                { !loading ? 
+                    <>
+                        <div className="flex gap-2">
 
-                    <button className="mb-2 subtle" onClick={ ()=> refetch() }>
-                        { !loading ?
-                            "Обновить"
-                        : <Loader /> }
-                    </button>
-                    <button className="subtle compact">
-                        <Icon icon="cog" />
-                    </button>
+                            <button className="mb-2 subtle" onClick={ ()=> refetch() }>
+                                { !loading ?
+                                    "Обновить"
+                                : <Loader /> }
+                            </button>
+                            <button className="subtle compact">
+                                <Icon icon="cog" />
+                            </button>
 
-                </div>
-                <WokersList workers={ workers } loading={ loading } />
-                {/* <Loader /> */}
+                        </div>
+                    
+                        <WokersList workers={ workers } />
+                    </> 
+                : 
+                    <div className="flex item-center justify-center">
+                        <div className="flex flex-column items-center">
+                            <h3 className="text-muted mb-2">Получаем данные...</h3>
+                            <Loader />
+                        </div>
+                    </div>
+                }
 
             </section>
 

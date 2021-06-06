@@ -1,5 +1,6 @@
 import React from "react";
 import Icon from "../ui/Icon";
+import Loader from "../ui/Loader";
 
 export const Worker = props=> {
     return (
@@ -24,14 +25,12 @@ export const Worker = props=> {
     );
 };
 
-export const WokersList = ({ workers, loading })=> {
+export const WokersList = ({ workers })=> {
     return (
         <div className="workers-list flex flex-column">
-            { !loading ? 
-                workers.map((worker, index)=>
-                    <Worker { ...worker } index={ index } key={ worker.id } />
-                )
-            : <h3>Loading...</h3> }
+            { workers.map((worker, index)=>
+                <Worker { ...worker } index={ index } key={ worker.id } />
+            ) }
         </div>
     );
 }
