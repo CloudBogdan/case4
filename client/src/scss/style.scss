@@ -7,13 +7,18 @@
 
 @import "erid.scss";
 
-$brs: 14px;
-$black: #2a3d5f;
+$brs: 5px;
+$black: #1a263a;
 $blue: #0177fb;
+$blue-light: lighten($blue, 30);
+$blue-alpha: transparentize($blue, .7);
 $grey: #9ba6bd;
 $grey-alpha: transparentize($grey, .7);
 $grey-light: lighten($grey, 22);
 $grey-light-alpha: transparentize($grey-light, .7);
+.shadowed {
+    box-shadow: 0 10px 20px -5px $grey-light-alpha;
+}
 
 body {
     background: #fff;
@@ -28,6 +33,7 @@ body {
 @import "./components/buttons.scss";
 @import "./components/toolbar.scss";
 @import "./components/modal-window.scss";
+@import "./components/inputs.scss";
 
 .section {
     width: 100%;
@@ -42,6 +48,9 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
+    &.dark {
+        background: $grey-light;
+    }
 }
 
 .loader {

@@ -1,0 +1,24 @@
+input[type=text], input[type=number], .input, select {
+    width: 100%;
+    height: 50px;
+    padding: 0 15px;
+
+    font-size: 14px;
+
+    background: #fff;
+    border: 2px solid lighten($grey-light, 6);
+    border-radius: $brs;
+
+    transition: .1s;
+    
+    &:hover, &:focus {
+        @extend .shadowed;
+        transform: translateY(-2px);
+    }
+    &:focus {
+        border: 2px solid $blue-light;    
+        // box-shadow: 0 10px 30px -5px transparentize($blue, .7);
+        // transform: translateY(0);
+    }
+    
+}

@@ -2,7 +2,7 @@ export function createClassName(names, def) {
 
     let result = [];
 
-    if (!names[0])
+    if (typeof names === "object")
         Object.keys(names).map(key=> {
             if (names[key])
                 result.push(key);
@@ -10,5 +10,20 @@ export function createClassName(names, def) {
     else
         result = names;
 
-    return [def, result.join(" ")].join(" ");
+    return [def, (typeof names === "object" ? result.join(" ") : result)].join(" ");
 }
+
+export const months = [
+    "Январь",
+    "Февраль",
+    "Март",
+    "Апрель",
+    "Май",
+    "Июнь",
+    "Июль",
+    "Август",
+    "Сентябрь",
+    "Октябрь",
+    "Ноябрь",
+    "Декабрь",
+];

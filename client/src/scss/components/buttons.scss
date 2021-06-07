@@ -51,13 +51,17 @@ button, .button {
         padding: 0;
     }
     
+    &:hover {
+        transform: translateY(-2px);
+    }
     &:not(.subtle):not(.ghost) {
-        &:hover {
+        &:hover, &:focus {
             background: darken($blue, 5);
+            box-shadow: 0 10px 30px -10px $blue-alpha;
         }
     }
     &:active {
-        transform: translateY(1px);
+        transform: translateY(2px) !important;
     }
 
     &.slot-button {

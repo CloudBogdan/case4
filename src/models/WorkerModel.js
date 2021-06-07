@@ -9,6 +9,9 @@ const WorkerSchema = new Schema({
     birthday: String,
     human_id: String,
     date: String,
+    resume: String,
+    specializations: Array,
+    links: Array,
 
     login: String,
     password: String,

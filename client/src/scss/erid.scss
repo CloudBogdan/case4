@@ -64,7 +64,7 @@ $gap-length: 10;
     }
 }
 
-.flex, .slot {
+.flex, .slot, .col {
     display: flex;
 
     &.flex-column {
@@ -123,7 +123,10 @@ $gap-length: 10;
     align-self: center;
 }
 .slot {
-    @extend .flex.items-center
+    @extend .flex.items-center;
+}
+.col {
+    @extend .flex.flex-column;
 }
 
 .width-fill {

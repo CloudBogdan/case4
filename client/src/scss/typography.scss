@@ -10,3 +10,8 @@
 .font-middle {
     font-weight: 600;
 }
+
+.label {
+    @extend .text-muted;
+    @extend .font-middle;
+}

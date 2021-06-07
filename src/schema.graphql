@@ -40,6 +40,8 @@ type Mutation {
         birthday: String
         human_id: ID
         date: String
+        resume: String!
+        specializations: [String]!
 
         login: String
         password: String
@@ -75,6 +77,9 @@ type Worker {
     human_id: ID! # ID начальника(HR)
     human: Human! # Начальник(HR)
     date: String # Дата регистрации
+    resume: String! # Резюме
+    specializations: [String]! # Сильные стороны
+    links: [String] # Ссылки
 
     login: String # Логин
     password: String # Пароль

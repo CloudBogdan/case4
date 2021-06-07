@@ -7,6 +7,7 @@ import { WorkersQuery } from "../queries/queries";
 import ToolbarRight from "../components/header/ToolbarRight";
 import WorkerInfo from "../components/worker/WorkerInfo";
 import Icon from "../components/ui/Icon";
+import { Page } from "./Page";
 
 const HomePage = ()=> {
 
@@ -33,7 +34,7 @@ const HomePage = ()=> {
     }, []);
     
     return <>
-        <main className="page flex flex-row justify-between">
+        <Page className="flex flex-row justify-between">
 
             <main className="flex flex-column width-fill">
 
@@ -78,7 +79,7 @@ const HomePage = ()=> {
 
             <ToolbarRight />
 
-        </main>
+        </Page>
         <WorkerInfo worker_id={ current_worker_id } active={ show_worker_info } setActive={ setShowWorkerInfo } />
     </>;
 };
