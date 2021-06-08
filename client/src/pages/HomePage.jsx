@@ -24,7 +24,7 @@ const HomePage = ()=> {
     
     useEffect(()=> {
 
-        if (loading || !data.workers || error) return;
+        if (loading || !data || error) return;
         setWorkers(data.workers);
 
     }, [loading, data]);

@@ -12,13 +12,23 @@ const LoginPage = ()=> {
                 
                 <div style={ { minWidth: 400 } } className="typical-modal flex flex-column gap-4 shadowed">
 
+                    <label>
+                        <div className="label">Ваша специальность</div>
+                        <select>
+                            <option value="worker">Я сотрудник</option>
+                            <option value="human">Я HR</option>
+                        </select>
+                    </label>
+                    <label>
+                        <div className="label">ФИО</div>
+                        <div className="col gap-2">
+                            <input type="text" placeholder="Ваше имя" />
+                            <input type="text" placeholder="Ваша фамилия" />
+                            <input type="text" placeholder="Ваше отчество" />
+                        </div>
+                    </label>
                     <div className="col gap-2">
-                        <input type="text" placeholder="Ваше имя" />
-                        <input type="text" placeholder="Ваша фамилия" />
-                        <input type="text" placeholder="Ваше отчество" />
-                    </div>
-                    <div className="col gap-2">
-                        <label className="col gap-1">
+                        <label>
                             <div className="label">Дата рождения</div>
                             <div className="flex gap-2">
                                 <select>

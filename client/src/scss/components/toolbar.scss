@@ -7,8 +7,14 @@
     background: #fff;
 }
 .toolbar-right {
-    width: 280px;
-    min-width: 280px;
+    width: 400px;
+    min-width: 400px;
 
     border-left: 1px solid $grey-light;
+
+    @media screen and (max-width: 1400px) {
+        width: 320px;
+        min-width: 320px;
+    }
+
 }
