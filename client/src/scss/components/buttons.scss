@@ -20,17 +20,21 @@ button, .button {
     &.subtle {
         background: lighten($grey-light, 8);
         color: $black;
-        &:hover, &:focus, &:not(:disabled) {
-            background: lighten($grey-light, 6);
-            color: $blue;
+        &:hover, &:focus {
+            &:not(:disabled) {
+                background: lighten($grey-light, 6);
+                color: $blue;
+            }
         }
     }
     &.ghost {
         background: transparent;
         color: $grey;
-        &:hover, &:focus, &:not(:disabled) {
-            color: $blue;
-            background: transparent;
+        &:hover, &:focus {
+            &:not(:disabled) {
+                color: $blue;
+                background: transparent;
+            }
         }
     }
 

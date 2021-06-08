@@ -19,30 +19,47 @@
 
 }
 .toolbar-left {
-    width: 80px;
-    min-width: 80px;
+    width: 60px;
+    min-width: 60px;
 
     border-right: 1px solid $grey-light;
 }
 .toolbar-button {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
+    padding: 0;
+
+    color: $grey !important;
     background: transparent !important; 
+    box-shadow: none !important;
+
+    &:hover:not(:active) {
+        transform: translate(0) !important;
+    }
 
     &.active {
-        
+        color: $blue !important;
+        &::after {
+            opacity: 1;
+            top: 50%;
+        }
     }
     &::after{
         content: "";
 
-        height: 100%;
-        width: 8px;
+        height: 12px;
+        width: 12px;
 
         position: absolute;
-        right: 0;
-        top: 0;
+        left: 100%;
+        top: 60%;
+        transform: translate(-50%, -50%);
 
         background: $blue;
+        border-radius: 50%;
+        opacity: 0;
+
+        transition: .1s;
     }
 
 }
