@@ -8,6 +8,7 @@ import ToolbarRight from "../components/header/ToolbarRight";
 import WorkerInfo from "../components/worker/WorkerInfo";
 import Icon from "../components/ui/Icon";
 import { Page } from "./Page";
+import ToolbarLeft from "../components/header/ToolbarLeft";
 
 const HomePage = ()=> {
 
@@ -35,6 +36,7 @@ const HomePage = ()=> {
     
     return <>
         <Page className="flex flex-row justify-between">
+            <ToolbarLeft />
 
             <main className="flex flex-column width-fill">
 
