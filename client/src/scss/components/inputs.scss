@@ -10,15 +10,14 @@ input[type=text], input[type=number], .input, select {
     border-radius: $brs;
 
     transition: .1s;
+    cursor: pointer;
     
     &:hover, &:focus {
         @extend .shadowed;
         transform: translateY(-2px);
     }
     &:focus {
-        border: 2px solid $blue-light;    
-        // box-shadow: 0 10px 30px -5px transparentize($blue, .7);
-        // transform: translateY(0);
+        border: 2px solid $blue-light;  
     }
     
 }

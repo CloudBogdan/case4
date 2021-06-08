@@ -20,7 +20,7 @@ button, .button {
     &.subtle {
         background: lighten($grey-light, 8);
         color: $black;
-        &:hover, &:focus {
+        &:hover, &:focus, &:not(:disabled) {
             background: lighten($grey-light, 6);
             color: $blue;
         }
@@ -28,7 +28,7 @@ button, .button {
     &.ghost {
         background: transparent;
         color: $grey;
-        &:hover, &:focus {
+        &:hover, &:focus, &:not(:disabled) {
             color: $blue;
             background: transparent;
         }
@@ -51,10 +51,10 @@ button, .button {
         padding: 0;
     }
     
-    &:hover {
+    &:hover:not(:disabled) {
         transform: translateY(-2px);
     }
-    &:not(.subtle):not(.ghost) {
+    &:not(.subtle):not(.ghost):not(:disabled) {
         &:hover, &:focus {
             background: darken($blue, 5);
             box-shadow: 0 10px 30px -10px $blue-alpha;
@@ -69,6 +69,11 @@ button, .button {
         padding: 10px 20px;
         
         border-radius: 50px;
+    }
+
+    &:disabled {
+        opacity: .3;
+        cursor: initial;
     }
     
 }
