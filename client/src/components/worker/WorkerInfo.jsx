@@ -7,7 +7,7 @@ import Loader from "../ui/Loader";
 
 const WorkerInfo = ({ worker_id, active, setActive })=> {
     
-    const { data, loading, error } = useQuery(WorkerQuery(worker_id, ["firstName", "lastName", "middleName", "birthday", "date"]));
+    const { data, loading, error } = useQuery(WorkerQuery(worker_id, ["firstName", "lastName", "middleName", "birthday", "date", "resume"]));
     const [worker, setWorker] = useState(null);
     
     useEffect(()=> {
@@ -21,9 +21,9 @@ const WorkerInfo = ({ worker_id, active, setActive })=> {
     return (
         <ModalWindow active={ active } setActive={ setActive }>
             
-            <div className="typical-modal" style={ { minWidth: 400 } }>
+            <div className="typical-modal" style={ { minWidth: 500, maxWidth: 600 } }>
                 
-                <header className="slot justify-between mb-4">
+                <header className="slot justify-between mb-2">
                     <span className="font-middle">Информация о сотруднике</span>
 
                     <button onClick={ ()=> setActive(false) } className="subtle fab small"><Icon icon="cross" /></button>
@@ -31,13 +31,25 @@ const WorkerInfo = ({ worker_id, active, setActive })=> {
 
                 { (!loading && worker) ?
 
-                    <main className="selectable flex flex-column gap-2">
+                    <main className="selectable flex flex-column gap-4">
+
                         <h2>{ `${ worker.firstName } ${ worker.lastName } ${ worker.middleName }` }</h2>
-                        <div className="flex flex-column text-muted">
-                            <span>Сотрудник</span>
-                            <span>Дата рождения: { worker.birthday }</span>
-                            <span>Дата регистрации: { worker.date }</span>
+                        
+                        <div className="col">
+                            <span className="label">Прочая информация</span>
+                            <div className="flex flex-column">
+                                <span>Сотрудник</span>
+                                <span>Дата рождения: { worker.birthday }</span>
+                                <span>Дата регистрации: { worker.date }</span>
+                            </div>
                         </div>
+                        <div className="col">
+                            <span className="label">Резюме</span>
+                            <p style={ { fontSize: 16 } }>{ worker.resume || 
+                                <i className="text-middle">Видимо резюме не заполненно</i>
+                            }</p>
+                        </div>
+                        
                     </main>
                     
                 : <div className="flex items-center justify-center"><Loader /></div> }

@@ -50,7 +50,7 @@ const HomePage = ()=> {
                                 <div className="slot gap-2">
 
 
-                                    <button className="subtle compact small" onClick={ ()=> refetchData() }>
+                                    <button className="subtle fab small" onClick={ ()=> refetchData() }>
                                         { !loading ?
                                             <Icon icon="refresh" />
                                         : <Loader /> }
