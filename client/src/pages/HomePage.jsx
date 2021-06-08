@@ -4,11 +4,11 @@ import Loader from "../components/ui/Loader";
 import Header from "../components/header/Header";
 import { WorkersList } from "../components/worker/Worker";
 import { WorkersQuery } from "../queries/queries";
-import ToolbarRight from "../components/header/ToolbarRight";
+import ToolbarRight from "../components/toolbar/ToolbarRight";
 import WorkerInfo from "../components/worker/WorkerInfo";
 import Icon from "../components/ui/Icon";
 import { Page } from "./Page";
-import ToolbarLeft from "../components/header/ToolbarLeft";
+import ToolbarLeft from "../components/toolbar/ToolbarLeft";
 
 const HomePage = ()=> {
 
