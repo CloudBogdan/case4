@@ -52,7 +52,7 @@ const WorkersSection = ()=> {
                     <WorkersList handle={ props=> {
                         setShowWorkerInfo(true)
                         setCurrentWorkerId(props.id)
-                    } } workers={ workers } />
+                    } } workers={ [...workers].reverse() } />
                 </> 
             : 
                 <div className="flex item-center justify-center">
