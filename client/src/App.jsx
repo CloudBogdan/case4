@@ -17,7 +17,7 @@ const App = ()=> {
 					<Route path="/login" component={ LoginPage } />
 
 					<Route path="/" exact>
-						<Redirect to="/dashboard" />
+						<Redirect to="/dashboard/workers" />
 					</Route>
 
 				</Switch>
