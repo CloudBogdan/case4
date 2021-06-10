@@ -10,7 +10,6 @@ input[type=text], input[type=number], .input, select {
     border-radius: $brs;
 
     transition: .1s;
-    cursor: pointer;
     
     &:hover, &:focus {
         @extend .shadowed;
@@ -20,4 +19,7 @@ input[type=text], input[type=number], .input, select {
         border: 2px solid $blue-light;  
     }
     
+}
+select {
+    cursor: pointer;
 }

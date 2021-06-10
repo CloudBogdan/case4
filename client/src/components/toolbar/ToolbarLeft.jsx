@@ -3,9 +3,9 @@ import ToolbarButton from "./ToolbarButton";
 
 const ToolbarLeft = ()=> {
     return (
-        <aside className="toolbar toolbar-left">
-            <ToolbarButton icon="users" active title="Сотрудники" />
-            <ToolbarButton icon="chartbar" title="Моя команда" />
+        <aside className="toolbar toolbar-left flex flex-column gap-0">
+            <ToolbarButton icon="users" title="Сотрудники" to="/workers" />
+            <ToolbarButton icon="chartbar" title="Моя команда" to="/team" />
         </aside>
     );
 };

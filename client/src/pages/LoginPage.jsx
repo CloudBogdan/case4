@@ -1,5 +1,7 @@
+import { useMutation } from "@apollo/client";
 import React, { useEffect, useState } from "react";
 import { createDateFromArray, months } from "../general";
+import { AddWorkerMutation } from "../queries/queries";
 import { Page } from "./Page";
 
 const LoginPage = ()=> {
@@ -12,17 +14,22 @@ const LoginPage = ()=> {
         [birthday, setBirthday] = useState([null, null, null]),
         [login, setLogin] = useState(""),
         [password, setPassword] = useState("");
+    const [addWorker] = useMutation(AddWorkerMutation());
 
     function register(e) {
         e.preventDefault();
 
-        console.log({
-            firstName,
-            lastName,
-            middleName,
-            birthday,
-            login,
-            password
+        if (specialization !== "worker") return;
+        
+        addWorker({
+            variables: {
+                firstName,
+                lastName,
+                middleName,
+                birthday: createDateFromArray(birthday),
+                login,
+                password
+            }
         });
     }
         

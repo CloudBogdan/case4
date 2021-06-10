@@ -1,12 +1,13 @@
 import React from "react";
-import { createClassName } from "../../general";
 import Icon from "../ui/Icon";
+import { NavLink } from "react-router-dom";
 
-const ToolbarButton = ({ icon, active, title })=> {
+const ToolbarButton = ({ icon, title, to })=> {
     return (
-        <button className={ createClassName({ "active": active }, "toolbar-button") } title={ title || "" }>
+        <NavLink activeClassName="active" to={ `/dashboard${ to }` } className="button toolbar-button ghost" title={ title || "" }>
             <Icon icon={ icon } />
-        </button>
+            <span>{ title }</span>
+        </NavLink>
     )
 };
 

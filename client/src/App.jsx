@@ -1,7 +1,7 @@
 import React from 'react';
-import { Route, Switch } from "react-router";
+import { Redirect, Route, Switch } from "react-router";
 import Context from './Context';
-import HomePage from './pages/HomePage';
+import HomePage from './pages/home/HomePage';
 import LoginPage from './pages/LoginPage';
 
 const App = ()=> {
@@ -13,8 +13,12 @@ const App = ()=> {
 				<Switch>
 
 					{/* <Router from="/" to="/dashboard" /> */}
-					<Route path="/dashboard" component={ HomePage } />
+					<Route path="/dashboard/:page" component={ HomePage } />
 					<Route path="/login" component={ LoginPage } />
+
+					<Route path="/" exact>
+						<Redirect to="/dashboard" />
+					</Route>
 
 				</Switch>
 
