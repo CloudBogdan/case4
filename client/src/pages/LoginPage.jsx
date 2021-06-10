@@ -27,6 +27,12 @@ const LoginPage = ()=> {
                 lastName,
                 middleName,
                 birthday: createDateFromArray(birthday),
+                human_id: "60bcaf8b6e796348a8f393c4",
+                date: createDateFromArray([ new Date().getDay(), new Date().getMonth() + 1, new Date().getFullYear() ]),
+                resume: "Тест",
+                specializations: ["IT", "И что-то ещё"],
+                links: [],
+                
                 login,
                 password
             }
