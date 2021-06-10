@@ -19,7 +19,7 @@ const LoginPage = ()=> {
     function register(e) {
         e.preventDefault();
 
-        if (specialization !== "worker") return;
+        // if (specialization !== "worker") return;
         
         addWorker({
             variables: {
