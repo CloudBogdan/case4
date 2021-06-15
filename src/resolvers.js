@@ -22,6 +22,8 @@ const resolvers = {
             HumanModel.find({}),
         human: (_, { id })=>
             HumanModel.findById(id),
+        humansByData: (_, args)=>
+            HumanModel.find(args),
 
     },
     // > Mutation

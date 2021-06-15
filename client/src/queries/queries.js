@@ -20,6 +20,39 @@ export function WorkerQuery(id, data) {
     `;
 }
 
+export function HumansByDataQuery(data) {
+    return gql`
+        query GetHumansByData(
+            $id: ID
+    
+            $firstName: String
+            $lastName: String
+            $middleName: String
+            $birthday: String
+            $date: String
+
+            $login: String
+            $password: String
+        ) {
+            humansByData(
+                id: $id
+    
+                firstName: $firstName
+                lastName: $lastName
+                middleName: $middleName
+                birthday: $birthday
+                date: $date
+
+                login: $login
+                password: $password
+            ) {
+                id
+                ${ data.join("\n") }
+            }
+        }
+    `;
+}
+
 // * Add
 export function AddWorkerMutation(data) {
     return gql`
@@ -30,7 +63,6 @@ export function AddWorkerMutation(data) {
             $birthday: String!
             $human_id: ID
             $date: String!
-            $resume: String!
             $specializations: [String]!
             $links: [String]
 
@@ -44,7 +76,6 @@ export function AddWorkerMutation(data) {
                 birthday: $birthday
                 human_id: $human_id
                 date: $date
-                resume: $resume
                 specializations: $specializations
                 links: $links
                 login: $login

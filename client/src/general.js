@@ -17,7 +17,10 @@ export const addZero = (num)=> num.toString().length < 2 ? `0${ num }` : num.toS
 export function createDateFromArray(array) {
     if (!array[0] || !array[1] || !array[2]) return null;
     return `${ addZero(array[0]) }.${ addZero(array[1]) }.${ array[2] }`;
-} 
+}
+export function buildName(user, full) {
+    return `${ user.firstName } ${ user.lastName } ${ full ? user.middleName : "" }`
+}
 
 export const months = [
     "Январь",

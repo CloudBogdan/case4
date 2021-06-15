@@ -1,38 +1,36 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Redirect } from "react-router";
 import Header from "../../components/header/Header";
 import ToolbarRight from "../../components/toolbar/ToolbarRight";
+import HiddenLayout from "../../components/ui/HiddenLayout";
+import Context from "../../Context";
 import { Page } from "../Page";
-import ToolbarLeft from "../../components/toolbar/ToolbarLeft";
 import WorkersSection from "./WorkersSection";
 
-const HomePage = props=> {
-
-    const page_type = props.match.params.page;
+const HomePage = ()=> {
     
-    const SectionFilter = ()=> {
-        switch (page_type) {
-            case "workers":
-                return <WorkersSection />
-            case "team":
-                return <h1>My team</h1>
-            default:
-                return <WorkersSection />
-        }
-    }
+    const { human } = useContext(Context);
     
     return (
         <Page className="flex flex-row justify-between">
-            <ToolbarLeft />
 
-            <main className="flex flex-column width-fill height-fill">
+            <HiddenLayout active={ human }>
 
-                <Header />
+                <>
+                    <main className="flex flex-column width-fill height-fill">
 
-                <SectionFilter />
+                        <Header />
 
-            </main>
+                        <WorkersSection />
 
-            <ToolbarRight />
+                    </main>
+
+                    <ToolbarRight />
+                </>
+
+                <Redirect to="/login" />
+
+            </HiddenLayout>
 
         </Page>
     );

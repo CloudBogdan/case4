@@ -9,10 +9,14 @@
 @import "erid.scss";
 
 $brs: 5px;
+
 $black: #1a263a;
 $blue: #0177fb;
 $blue-light: lighten($blue, 30);
 $blue-alpha: transparentize($blue, .7);
+
+$red: #ff322b;
+
 $grey: #9ba6bd;
 $grey-alpha: transparentize($grey, .7);
 $grey-light: lighten($grey, 22);
@@ -39,9 +43,7 @@ body {
 .section {
     width: 100%;
     height: 100%;
-    padding: 20px;
-
-    margin: 10px;
+    padding: 30px;
     
     border-radius: $brs;
 }
@@ -88,3 +90,19 @@ body {
     }
     
 }
+
+.bdb {
+    border-bottom: 1px solid $grey-light;
+}
+
+.scrollable {
+    overflow-y: scroll;
+    height: 100%;
+}
+.sticky {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    background: #fff;
+} 

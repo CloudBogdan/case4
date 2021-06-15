@@ -7,7 +7,7 @@ import Loader from "../ui/Loader";
 
 const WorkerInfo = ({ worker_id, active, setActive })=> {
     
-    const { data, loading, error } = useQuery(WorkerQuery(worker_id, ["firstName", "lastName", "middleName", "birthday", "date", "resume"]));
+    const { data, loading, error } = useQuery(WorkerQuery(worker_id, ["firstName", "lastName", "middleName", "birthday", "date"]));
     const [worker, setWorker] = useState(null);
     
     useEffect(()=> {
@@ -42,12 +42,6 @@ const WorkerInfo = ({ worker_id, active, setActive })=> {
                                 <span>Дата рождения: { worker.birthday }</span>
                                 <span>Дата регистрации: { worker.date }</span>
                             </div>
-                        </div>
-                        <div className="col">
-                            <span className="label">Резюме</span>
-                            <p style={ { fontSize: 16 } }>{ worker.resume || 
-                                <i className="text-middle">Видимо резюме не заполненно</i>
-                            }</p>
                         </div>
                         
                     </main>

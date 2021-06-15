@@ -1,6 +1,9 @@
 .text-muted {
     color: $grey;
 }
+.text-red {
+    color: $red;
+}
 .selectable {
     user-select: text !important;
     * {
@@ -15,4 +18,23 @@
     @extend .text-muted;
     @extend .font-middle;
     margin-bottom: 5px;
+}
+
+.table-slot {
+    width: 100%;
+    &:not(.black) {
+        @extend .label;
+    }
+    > div {
+        &.large {
+            width: 100%;
+        }
+        &.small {
+            width: 350px;
+            text-align: center;
+        }
+        &:not(:last-child) {
+            border-right: 1px solid $grey-light;
+        }
+    }
 }
