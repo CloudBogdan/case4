@@ -20,8 +20,17 @@
     .middleName {
         opacity: 0;
     }
-    .icon {
-        color: $grey;
+    .bubble {
+        width: 10px;
+        height: 10px;
+
+        border-radius: 50%;
+        background: $grey-light;
+
+        &.color-green {
+            background: $blue;
+        }
+        
     }
 
     &:active {

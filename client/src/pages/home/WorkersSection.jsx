@@ -8,7 +8,7 @@ import { WorkersQuery } from "../../queries/queries";
 
 const WorkersSection = ()=> {
 
-    const { data, loading, error, refetch } = useQuery(WorkersQuery(["id", "firstName", "lastName", "middleName"]));
+    const { data, loading, error, refetch } = useQuery(WorkersQuery(["id", "firstName", "lastName", "middleName", "human_id"]));
     const [workers, setWorkers] = useState([]);
     const 
         [show_worker_info, setShowWorkerInfo] = useState(false),

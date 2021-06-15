@@ -28,11 +28,12 @@ export function AddWorkerMutation(data) {
             $lastName: String!
             $middleName: String!
             $birthday: String!
-            $human_id: ID!
+            $human_id: ID
             $date: String!
             $resume: String!
             $specializations: [String]!
             $links: [String]
+
             $login: String!
             $password: String!
         ) {

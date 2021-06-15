@@ -15,43 +15,43 @@ const resolvers = {
         
         workers: ()=>
             WorkerModel.find({}),
-        worker: (parent, { id })=>
+        worker: (_, { id })=>
             WorkerModel.findById(id),
             
         humans: ()=>
             HumanModel.find({}),
-        human: (parent, { id })=>
+        human: (_, { id })=>
             HumanModel.findById(id),
 
     },
     // > Mutation
     Mutation: {
         // > Add worker 👨✅
-        addWorker: (parent, args)=>
+        addWorker: (_, args)=>
             new WorkerModel(args).save(),
         // > Add human 👨‍🦳✅
-        addHuman: (parent, args)=>
+        addHuman: (_, args)=>
             new HumanModel(args).save(),
 
         // > Update worker 👨⏫
-        updateWorker: (parent, args)=>
+        updateWorker: (_, args)=>
             WorkerModel.findByIdAndUpdate(args.id, { $set: args }, { new: true }),
         // > Update human 👨‍🦳⏫
-        updateHuman: (parent, args)=>
+        updateHuman: (_, args)=>
             HumanModel.findByIdAndUpdate(args.id, { $set: args }, { new: true }),
 
         // > Remove worker 👨❌
-        removeWorker: (parent, { id })=>
+        removeWorker: (_, { id })=>
             WorkerModel.findByIdAndRemove(id),
         // > Remove human 👨‍🦳❌
-        removeHuman: (parent, { id })=>
+        removeHuman: (_, { id })=>
             HumanModel.findByIdAndDelete(id),
     },
 
     // > Types
     Worker: {
         human: (parent)=>
-            HumanModel.findById(parent.human_id)
+            parent.human_id ? HumanModel.findById(parent.human_id) : null
     },
     Human: {
         workers: (parent)=>

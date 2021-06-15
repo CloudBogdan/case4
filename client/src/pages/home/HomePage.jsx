@@ -24,7 +24,7 @@ const HomePage = props=> {
         <Page className="flex flex-row justify-between">
             <ToolbarLeft />
 
-            <main className="flex flex-column width-fill">
+            <main className="flex flex-column width-fill height-fill">
 
                 <Header />
 
