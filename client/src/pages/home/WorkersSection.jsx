@@ -30,38 +30,36 @@ const WorkersSection = ()=> {
     }, []);
     
     return (
-        <section className="section col gap-2 scrollable">
+        <section className="section flex flex-column gap-2 height-fill">
 
-            <div className="col gap-2 scrollable">
-                <HiddenLayout active={ !loading }>
+            <HiddenLayout active={ !loading }>
 
-                    <>
-                        <div className="slot gap-4">
-                            <h1>Сотрудники</h1>
-                            <div className="slot gap-2">
+                <>
+                    <div className="slot gap-4">
+                        <h1>Сотрудники</h1>
+                        <div className="slot gap-2">
 
 
-                                <button className="subtle fab small" onClick={ ()=> refetchData() }>
-                                    { !loading ?
-                                        <Icon icon="refresh" />
-                                    : <Loader /> }
-                                </button>
+                            <button className="subtle fab small" onClick={ ()=> refetchData() }>
+                                { !loading ?
+                                    <Icon icon="refresh" />
+                                : <Loader /> }
+                            </button>
 
-                            </div>
-                        </div>
-                    
-                        <WorkersList workers={ [...workers].reverse() } />
-                    </> 
-                
-                    <div className="flex item-center justify-center">
-                        <div className="col items-center">
-                            <h3 className="text-muted mb-2">Получаем данные...</h3>
-                            <Loader />
                         </div>
                     </div>
+                
+                    <WorkersList workers={ [...workers].reverse() } />
+                </> 
+            
+                <div className="flex item-center justify-center">
+                    <div className="col items-center">
+                        <h3 className="text-muted mb-2">Получаем данные...</h3>
+                        <Loader />
+                    </div>
+                </div>
 
-                </HiddenLayout>
-            </div>
+            </HiddenLayout>
 
         </section>
     )

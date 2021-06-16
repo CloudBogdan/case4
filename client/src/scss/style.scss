@@ -41,17 +41,17 @@ body {
 @import "./components/inputs.scss";
 
 .section {
-    width: 100%;
+    // width: 100%;
     height: 100%;
     padding: 30px;
     
     border-radius: $brs;
+    overflow: hidden;
 }
 .page {
-    width: 100%;
-    height: 100vh;
+    // width: 100%;
+    height: 100%;
     display: flex;
-    flex-direction: column;
     &.dark {
         background: $grey-light;
     }

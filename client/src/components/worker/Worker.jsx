@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import Context from "../../Context";
 import { buildName, createClassName } from "../../general";
-import Icon from "../ui/Icon";
 
 export const Worker = props=> {
 
@@ -44,17 +43,18 @@ export const Worker = props=> {
 
 export const WorkersList = ({ handle, workers })=> {
     return (
-        <div className="col height-fill">
-            <div className="table-slot slot p-4 bdb sticky">
+        <>
+            <div className="table-slot slot p-4 bdb">
                 <div className="large">Основная информация</div>
                 <div className="small">Дата рождения</div>
                 <div className="small">Дата начала работы</div>
             </div>
-            <div className="workers-list flex flex-column">
+            {/* <div className="size-fill"></div> */}
+            <div className="workers-list flex flex-column scrollable">
                 { workers.map((worker, index)=>
                     <Worker { ...worker } handle={ handle } index={ index } key={ worker.id } />
                 ) }
             </div>
-        </div>
+        </>
     );
 }

@@ -12,12 +12,12 @@ const HomePage = ()=> {
     const { human } = useContext(Context);
     
     return (
-        <Page className="flex flex-row justify-between">
+        <Page>
 
             <HiddenLayout active={ human }>
 
                 <>
-                    <main className="flex flex-column width-fill height-fill">
+                    <main className="flex flex-column height-fill">
 
                         <Header />
 
