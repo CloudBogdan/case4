@@ -29,6 +29,7 @@
             max-width: 100% !important;
             height: 100% !important;
             overflow: visible !important;
+
             
             @extend .button.fab;
             
@@ -41,10 +42,11 @@
             &.react-calendar__month-view__days__day--neighboringMonth {
                 color: $grey;
             }
-
+            
             // Now date
             &.react-calendar__tile.react-calendar__tile--now.react-calendar__month-view__days__day {
                 color: $blue !important;
+                animation: shake .3s infinite;
                 border: 2px solid $blue;
             }
             
@@ -68,4 +70,12 @@
         }
     }
 
+}
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(-2px);
+    }
+    50% {
+        transform: translateX(2px);
+    }
 }
