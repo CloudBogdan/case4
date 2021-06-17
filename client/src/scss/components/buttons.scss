@@ -19,27 +19,6 @@ button, .button {
     cursor: pointer;
     transition: .1s;
 
-    &.subtle {
-        background: lighten($grey-light, 8);
-        color: $black;
-        &:hover, &:focus {
-            &:not(:disabled) {
-                background: lighten($grey-light, 6);
-                color: $blue;
-            }
-        }
-    }
-    &.ghost {
-        background: transparent;
-        color: $grey;
-        &:hover, &:focus {
-            &:not(:disabled) {
-                color: $blue;
-                background: transparent;
-            }
-        }
-    }
-
     &.compact {
         width: 50px;
         min-width: 50px;
@@ -78,6 +57,29 @@ button, .button {
         border-radius: 50px;
     }
 
+    &.subtle {
+        background: lighten($grey-light, 8);
+        color: $black;
+        &:hover, &:focus {
+            &:not(:disabled) {
+                background: lighten($grey-light, 6) !important;
+                color: $blue !important;
+                box-shadow: none !important;
+            }
+        }
+    }
+    &.ghost {
+        background: transparent;
+        color: $black;
+        &:hover, &:focus {
+            &:not(:disabled) {
+                color: $blue !important;
+                background: lighten($grey-light, 8) !important;
+                box-shadow: none !important;
+            }
+        }
+    }
+    
     &:disabled {
         opacity: .3;
         cursor: initial;

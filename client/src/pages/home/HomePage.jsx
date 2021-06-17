@@ -17,7 +17,7 @@ const HomePage = ()=> {
             <HiddenLayout active={ human }>
 
                 <>
-                    <main className="flex flex-column height-fill">
+                    <main className="flex flex-column width-fill height-fill">
 
                         <Header />
 

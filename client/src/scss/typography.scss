@@ -22,19 +22,19 @@
 
 .table-slot {
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+    
     &:not(.black) {
         @extend .label;
     }
     > div {
-        &.large {
-            width: 100%;
-        }
-        &.small {
-            width: 350px;
+        .small {
+            width: 220px;
             text-align: center;
-        }
-        &:not(:last-child) {
-            border-right: 1px solid $grey-light;
+            &:not(:last-child) {
+                border-right: 1px solid $grey-light;
+            }
         }
     }
 }

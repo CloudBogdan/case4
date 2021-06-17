@@ -15,8 +15,6 @@ export const Worker = props=> {
 
                 <div className="slot gap-4 large">
 
-                    <span className="text-muted">{ `${ props.index + 1 }.` }</span>
-
                     <div title={ my_worker ? "Это ваш сотрудник" : "Не ваш" } className={ createClassName({ "color-green": my_worker }, "bubble") } />
 
                     <div className="flex gap-2 selectable">
@@ -28,11 +26,13 @@ export const Worker = props=> {
 
                 </div>
 
-                <div className="small">
-                    { props.birthday }
-                </div>
-                <div className="small">
-                    { props.date }
+                <div className="slot">
+                    <div className="small">
+                        { props.birthday }
+                    </div>
+                    <div className="small">
+                        { props.date }
+                    </div>
                 </div>
                 
             </div>
@@ -46,10 +46,11 @@ export const WorkersList = ({ handle, workers })=> {
         <>
             <div className="table-slot slot p-4 bdb">
                 <div className="large">Основная информация</div>
-                <div className="small">Дата рождения</div>
-                <div className="small">Дата начала работы</div>
+                <div className="slot">
+                    <div className="small">Дата рождения</div>
+                    <div className="small">Дата начала работы</div>
+                </div>
             </div>
-            {/* <div className="size-fill"></div> */}
             <div className="workers-list flex flex-column scrollable">
                 { workers.map((worker, index)=>
                     <Worker { ...worker } handle={ handle } index={ index } key={ worker.id } />
