@@ -21,6 +21,9 @@ export function createDateFromArray(array) {
 export function buildName(user, full) {
     return `${ user.firstName } ${ user.lastName } ${ full ? user.middleName : "" }`
 }
+export function compareId(id1, id2) {
+    return (id1 || 1).toString() === (id2 || 0).toString();
+}
 
 export const months = [
     "Январь",
@@ -36,3 +39,8 @@ export const months = [
     "Ноябрь",
     "Декабрь",
 ];
+export function dateToString(date) {
+    const d = new Date(date);
+    console.log(d);
+    return `${ d.getDay() } ${ months[d.getMonth()] } ${ d.getFullYear() }`;
+}

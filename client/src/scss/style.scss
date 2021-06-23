@@ -63,7 +63,7 @@ body {
     height: 30px;
 
     border-radius: 50%;
-    border: 2px solid transparentize($blue, .8);
+    border: 2px solid #fff;
     border-top: 3px solid $blue;
     animation: loader 1s infinite linear;
 }
@@ -107,3 +107,19 @@ body {
     z-index: 99;
     background: #fff;
 } 
+
+.clickable {
+    &:active {
+        transform: translateY(2px);
+    }
+    &:hover {
+        z-index: 33;
+        background: transparentize($grey-alpha, .2);
+
+        .middleName {
+            opacity: 1;
+            color: $grey;
+        }
+
+    }
+}

@@ -4,12 +4,12 @@ import { buildName, createClassName } from "../../general";
 
 export const Worker = props=> {
 
-    const { human } = useContext(Context);
+    const { human, showWorkerInfo } = useContext(Context);
     
     const my_worker = props.human_id == human.id;
     
     return (
-        <div onClick={ ()=> props.handle ? props.handle(props) : 0 } tabIndex="0" className="worker-item slot p-4">
+        <div onClick={ ()=> showWorkerInfo(props.id) } tabIndex="0" className="worker-item slot p-4 clickable">
 
             <div className="table-slot black slot">
 

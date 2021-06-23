@@ -1,6 +1,5 @@
-import { useLazyQuery, useQuery } from "@apollo/client";
+import { useLazyQuery } from "@apollo/client";
 import React, { useContext, useEffect, useState } from "react";
-import Icon from "../components/ui/Icon";
 import { Page } from "./Page";
 import { HumansByDataQuery } from "../queries/queries";
 import HiddenLayout from "../components/ui/HiddenLayout";
@@ -35,7 +34,7 @@ const LoginPage = ()=> {
         
         console.log(data);
 
-        if (loading || !data || error) return;
+        if (loading || !data) return;
 
         if (data.humansByData.length == 1) {
             setLoginError(null);
@@ -215,7 +214,7 @@ const LoginPage = ()=> {
                     <button
                         type="submit"
                         className="width-fill"
-                        disabled={ !(login && password) }
+                        disabled={ !(login && password && !loading) }
                     >
                         <HiddenLayout active={ !loading }>
                             <>Войти</>

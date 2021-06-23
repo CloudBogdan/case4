@@ -7,17 +7,11 @@
     background: #fff;
 }
 .toolbar-right {
-    // width: 460px;
-    // min-width: 460px;
+    width: 360px;
+    min-width: 360px;
     padding: 20px;
 
     border-left: 1px solid $grey-light;
-
-    @media screen and (max-width: 1400px) {
-        width: 320px;
-        min-width: 320px;
-    }
-
 }
 .toolbar-left {
     width: 240px;

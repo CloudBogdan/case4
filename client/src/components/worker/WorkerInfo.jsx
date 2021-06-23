@@ -1,22 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
 import ModalWindow from "../ui/ModalWindow";
 import Icon from "../ui/Icon"
-import { useQuery } from "@apollo/client";
-import { WorkerQuery } from "../../queries/queries";
 import Loader from "../ui/Loader";
+import Context from "../../Context";
+import { compareId } from "../../general";
+import HiddenLayout from "../ui/HiddenLayout";
 
 const WorkerInfo = ({ worker_id, active, setActive })=> {
     
-    const { data, loading, error } = useQuery(WorkerQuery(worker_id, ["firstName", "lastName", "middleName", "birthday", "date"]));
-    const [worker, setWorker] = useState(null);
-    
-    useEffect(()=> {
-
-        if (loading || !data || error) return;
-
-        setWorker(data.worker)
-
-    }, [loading, data]);
+    const { workers, human } = useContext(Context);
+    const worker = workers.filter(w=> compareId(w.id, worker_id))[0];
     
     return (
         <ModalWindow active={ active } setActive={ setActive }>
@@ -29,24 +22,29 @@ const WorkerInfo = ({ worker_id, active, setActive })=> {
                     <button onClick={ ()=> setActive(false) } className="subtle fab small"><Icon icon="cross" /></button>
                 </header>
 
-                { (!loading && worker) ?
-
+                { worker ?
                     <main className="selectable flex flex-column gap-4">
 
-                        <h2>{ `${ worker.firstName } ${ worker.lastName } ${ worker.middleName }` }</h2>
+                        <div className="flex flex-column">
+                            <h2>{ `${ worker.firstName } ${ worker.lastName } ${ worker.middleName }` }</h2>
+                            <HiddenLayout active={ compareId(worker.human_id, human?.id) }>
+                                <span className="text-blue">Ваш сотрудник</span>
+                                <span className="text-muted">Сотрудник</span>
+                            </HiddenLayout>
+                        </div>
                         
                         <div className="col">
                             <span className="label">Прочая информация</span>
                             <div className="flex flex-column">
-                                <span>Сотрудник</span>
                                 <span>Дата рождения: { worker.birthday }</span>
                                 <span>Дата регистрации: { worker.date }</span>
                             </div>
                         </div>
                         
                     </main>
-                    
-                : <div className="flex items-center justify-center"><Loader /></div> }
+                :
+                    <h2>Что-то пошло не так!</h2>
+                }
                 
             </div>
 

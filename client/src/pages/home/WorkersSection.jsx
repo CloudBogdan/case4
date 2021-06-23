@@ -1,33 +1,34 @@
-import { useQuery } from "@apollo/client";
 import React, { useContext, useEffect, useState } from "react";
 import Icon from "../../components/ui/Icon";
 import Loader from "../../components/ui/Loader";
 import HiddenLayout from "../../components/ui/HiddenLayout";
 import { WorkersList } from "../../components/worker/Worker";
-import { WorkersQuery } from "../../queries/queries";
 import Context from "../../Context";
+import { useQuery } from "@apollo/client";
+import { WorkersQuery } from "../../queries/queries";
 
 const WorkersSection = ()=> {
 
-    const { human } = useContext(Context);
-    const { data, loading, error, refetch } = useQuery(WorkersQuery(["id", "firstName", "lastName", "middleName", "human_id", "birthday", "date"]));
-    const [workers, setWorkers] = useState([]);
+    const { workers, setWorkers } = useContext(Context);
+    // const [workers, setWorkers] = useState([]);
 
-    function refetchData() {
+    const { data, loading, error, refetch } = useQuery(WorkersQuery(["id", "firstName", "lastName", "middleName", "human_id", "birthday", "date"]));
+
+    function refetchWorkersData() {
         refetch();
         console.log("Workers data refetched");
     }
     
+    // > Load data every 5 second
+    useEffect(()=> {
+        setInterval(refetchWorkersData, 5000);
+    }, []);
     useEffect(()=> {
 
         if (loading || !data || error) return;
         setWorkers(data.workers);
 
     }, [loading, data]);
-    // > Load data every 5 second
-    useEffect(()=> {
-        setInterval(refetchData, 5000);
-    }, []);
     
     return (
         <section className="section flex flex-column gap-2 height-fill">
@@ -40,7 +41,7 @@ const WorkersSection = ()=> {
                         <div className="slot gap-2">
 
 
-                            <button className="subtle fab small" onClick={ ()=> refetchData() }>
+                            <button className="subtle fab small" onClick={ ()=> refetchWorkersData() }>
                                 { !loading ?
                                     <Icon icon="refresh" />
                                 : <Loader /> }

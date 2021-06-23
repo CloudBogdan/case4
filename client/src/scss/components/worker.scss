@@ -21,18 +21,11 @@
         
     }
     
-    &:active {
-        transform: translateY(2px);
-    }
     &:hover {
-        z-index: 33;
-        background: transparentize($grey-alpha, .2);
-
         .middleName {
             opacity: 1;
             color: $grey;
         }
-
     }
     
 }
