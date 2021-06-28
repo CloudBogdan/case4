@@ -29,3 +29,14 @@ textarea {
     min-height: 120px;
     resize: vertical;
 }
+
+input[type=checkbox] {
+    width: 20px;
+    height: 20px;
+}
+
+label {
+    input[type=checkbox] {
+        margin-right: 10px;
+    }
+}

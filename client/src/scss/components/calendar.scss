@@ -6,10 +6,15 @@
         cursor: pointer;
 
         &.is-near {
-            background: #0f0;
+            .icon, .name {
+                color: $blue;
+            }
         }
         &.is-miss {
-            background: #f00;
+            background: transparentize($red, .9);
+            .icon, .name {
+                color: $red;
+            }
         }
         
     }

@@ -44,6 +44,5 @@ export function formatDate(date) {
 }
 export function dateToString(date, offset) {
     const d = new Date(formatDate(date).getTime() + (offset || 0));
-    console.log(d);
     return `${ d.getDate() } ${ months[d.getMonth()] } ${ d.getFullYear() }`;
 }
