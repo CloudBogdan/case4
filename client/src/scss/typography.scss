@@ -7,6 +7,9 @@
 .text-red {
     color: $red;
 }
+.text-black {
+    color: $black;
+}
 .selectable {
     user-select: text !important;
     * {

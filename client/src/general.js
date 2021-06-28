@@ -39,8 +39,11 @@ export const months = [
     "Ноябрь",
     "Декабрь",
 ];
-export function dateToString(date) {
-    const d = new Date(date);
+export function formatDate(date) {
+    return new Date(`${ date.split(".")[2] }-${ date.split(".")[1] }-${ date.split(".")[0] }`);
+}
+export function dateToString(date, offset) {
+    const d = new Date(formatDate(date).getTime() + (offset || 0));
     console.log(d);
-    return `${ d.getDay() } ${ months[d.getMonth()] } ${ d.getFullYear() }`;
+    return `${ d.getDate() } ${ months[d.getMonth()] } ${ d.getFullYear() }`;
 }

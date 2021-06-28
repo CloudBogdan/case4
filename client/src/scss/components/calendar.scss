@@ -4,6 +4,14 @@
 
         transition: .1s;
         cursor: pointer;
+
+        &.is-near {
+            background: #0f0;
+        }
+        &.is-miss {
+            background: #f00;
+        }
+        
     }
 }
 

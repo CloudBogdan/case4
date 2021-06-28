@@ -6,7 +6,7 @@ const ToolbarRight = ()=> {
         <aside className="toolbar toolbar-right">
             
             <div className="flex flex-column gap-2 height-fill">
-                <h2 className="label">Календарь подарков</h2>
+                <h3 className="label">Календарь ближайших подарков</h3>
                 <Calendar />
             </div>
 
